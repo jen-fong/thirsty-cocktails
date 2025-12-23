@@ -1,6 +1,6 @@
-const NUMBER_REGEX = /(\d+[\-\/]\d+|\d+(\.\d+)?)/g;
+const NUMBER_REGEX = /(\d+\s*[\-\/]\s*\d+|\d+(\.\d+)?)/g;
 // Handles decimals, fractions, whole numbers, and ranges (3-4 oz) in string format
-export function parseNumberQuantity(value: string) {
+export function parseNumberQuantity(value: string): number {
     const parts = value.match(NUMBER_REGEX) || [];
     const toNumberQuantity = parts.reduce((accum, currPart) => {
         const isFraction = currPart.includes('/');
@@ -12,7 +12,7 @@ export function parseNumberQuantity(value: string) {
         } else if (hasPartialRange) {
             // just pick the lower value here for simplicity
             const [num] = currPart.split('-');
-            return Number(num);
+            accum += Number(num);
         } else {
             accum += Number(currPart);
         }

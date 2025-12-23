@@ -10,7 +10,7 @@ import { useQuery } from '@tanstack/react-query';
 import { notFound, useParams } from 'next/navigation';
 import { useMemo } from 'react';
 import { PieChartData } from '@/shared-types';
-import { standardizeUnit } from '@/utils/drinks';
+import { standardizeUnit } from '@/utils/drinks-measurements';
 import { Loader } from '@/components/loader';
 import { CustomHeader } from '@/components/header';
 import { PageContainer } from '@/components/layouts';

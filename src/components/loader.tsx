@@ -7,6 +7,9 @@ export function Loader() {
                 display: 'flex',
                 justifyContent: 'center',
             }}
+            role="status"
+            aria-busy="true"
+            aria-label="Loading..."
         >
             <CircularProgress />
         </Box>

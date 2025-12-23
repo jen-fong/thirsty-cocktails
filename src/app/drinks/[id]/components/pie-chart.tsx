@@ -58,6 +58,7 @@ export default function PieChart({
             <Legend data={legend} />
             {data?.length > 0 && (
                 <MuiPieChart
+                    data-testid="pie-chart"
                     series={[
                         {
                             data,

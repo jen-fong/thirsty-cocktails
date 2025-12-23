@@ -1,4 +1,4 @@
-import { cleanMeasurement } from '@/utils/drinks';
+import { cleanMeasurement } from '@/utils/drinks-measurements';
 import { Drink, DrinkApiData, DrinkIngredient, DrinkListItem } from '@/shared-types';
 
 export function combineIngredientsAndUnit(drink: DrinkApiData): DrinkIngredient[] {
