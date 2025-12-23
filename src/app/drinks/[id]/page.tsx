@@ -68,7 +68,7 @@ export default function DrinkPage() {
                     }
                 })
                 .filter((ingredient): ingredient is PieChartData => ingredient !== undefined),
-        [data]
+        [data],
     );
 
     const legend = data?.ingredients.map(({ name, measurement }, i) => {
