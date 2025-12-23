@@ -15,7 +15,7 @@ import { Loader } from '@/components/loader';
 import { CustomHeader } from '@/components/header';
 
 const PageContainer = styled('main')({
-    maxWidth: '400px',
+    maxWidth: '420px',
     margin: 'auto',
     padding: '30px 20px 0',
 });
@@ -35,13 +35,13 @@ const IngredientsContainer = styled(Box)({
     margin: '30px 0 0',
 });
 
-const IngredientsLabel = styled(Typography)({
+const IngredientsLabel = styled(Typography)<TypographyProps>({
     fontSize: '17px',
     fontWeight: 'bold',
     marginBottom: '20px',
 });
 
-const InstructionsText = styled(BodyTypography)({
+const InstructionsTypography = styled(BodyTypography)({
     margin: '30px 0 20px',
 });
 
@@ -97,16 +97,16 @@ export default function DrinkPage() {
             <PageContainer>
                 <DrinkDetails>
                     <DrinkImage src={data.image} alt={data.name} width="150px" height="150px" />
-                    <DrinkName component="h1">{data.name}</DrinkName>
+                    <DrinkName component="h2">{data.name}</DrinkName>
                 </DrinkDetails>
 
                 <IngredientsContainer>
-                    <IngredientsLabel>Ingredients</IngredientsLabel>
+                    <IngredientsLabel component="h3">Ingredients</IngredientsLabel>
 
                     {chartData && legend && <PieChart data={chartData} legend={legend} />}
                 </IngredientsContainer>
 
-                <InstructionsText>{data.instructions}</InstructionsText>
+                <InstructionsTypography>{data.instructions}</InstructionsTypography>
             </PageContainer>
         </>
     );

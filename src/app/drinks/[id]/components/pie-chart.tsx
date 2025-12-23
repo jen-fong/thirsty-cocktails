@@ -5,6 +5,7 @@ import { PieChart as MuiPieChart } from '@mui/x-charts/PieChart';
 
 const IngredientsLegend = styled('ul')({
     listStyleType: 'none',
+    flex: 1,
     '& :not(:last-of-type)': {
         marginBottom: '8px',
     },
@@ -21,14 +22,15 @@ const LegendColor = styled(Box)<{
     width: '20px',
     height: '20px',
     backgroundColor: color,
-    borderRadius: '4px',
+    borderRadius: '3px',
+    flexShrink: 0,
 }));
 
 const PieChartContainer = styled(Box)({
     display: 'flex',
     gap: '20px',
-    flex: 0,
     alignItems: 'flex-start',
+    marginBottom: '20px',
 });
 
 function Legend({ data }: { data: PieChartLegend[] }) {
@@ -66,6 +68,9 @@ export default function PieChart({
                     ]}
                     width={120}
                     height={120}
+                    sx={{
+                        flex: 0,
+                    }}
                     hideLegend
                 />
             )}

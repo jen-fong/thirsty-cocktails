@@ -5,17 +5,19 @@ import { BodyTypography } from '@/components/typography';
 import { DrinkImage } from '@/app/components/drink-image';
 import { DrinkListItem } from '@/shared-types';
 
+const DrinkListRow = styled('li')(({ theme }) => ({
+    borderBottom: `1px solid ${theme.palette.grey[300]}`,
+    '&:first-of-type': {
+        borderTop: `1px solid ${theme.palette.grey[300]}`,
+    },
+}));
+
 const StyledDrinkLink = styled(Link)(({ theme }) => ({
     height: '60px',
-    borderBottom: `1px solid ${theme.palette.grey[300]}`,
     display: 'flex',
     padding: '10px',
     alignItems: 'center',
     gap: '15px',
-
-    '&:first-of-type': {
-        borderTop: `1px solid ${theme.palette.grey[300]}`,
-    },
 
     '&:hover': {
         backgroundColor: theme.palette.grey[100],
@@ -31,7 +33,7 @@ export default function DrinksList({ drinks }: { drinks: DrinkListItem[] }) {
         <Box component="ul">
             {drinks.map(({ id, image, name }) => {
                 return (
-                    <Box component="li" key={id}>
+                    <DrinkListRow key={id}>
                         <StyledDrinkLink href={`/drinks/${id}`}>
                             <DrinkImage src={image} alt={name} width="40px" height="40px" />
                             <BodyTypography component="span" sx={{ flex: 1 }}>
@@ -40,7 +42,7 @@ export default function DrinksList({ drinks }: { drinks: DrinkListItem[] }) {
 
                             <RightIcon />
                         </StyledDrinkLink>
-                    </Box>
+                    </DrinkListRow>
                 );
             })}
         </Box>
