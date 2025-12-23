@@ -1,6 +1,6 @@
 # 🍹 Spiral Cocktails
 
-Take home assignment built using **Next.js 16**, **Material UI (MUI)**, and **TanStack Query**.
+Take home assignment built using **Next.js 16**, **Material UI (MUI)**, and **React Query**.
 
 ---
 
@@ -25,8 +25,8 @@ Take home assignment built using **Next.js 16**, **Material UI (MUI)**, and **Ta
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/jen-fong/spiral-cocktails.git
-    cd spiral-cocktails
+    git clone https://github.com/jen-fong/thirsty-cocktails.git
+    cd thirsty-cocktails
     ```
 
 2.  **Install dependencies:**
