@@ -13,6 +13,7 @@ import useDebounce from '@/hooks/use-debounce';
 import { ThirstyHeader } from '@/components/header';
 import { useSearchParams } from 'next/navigation';
 import { useSyncSearchParam } from '@/hooks/use-sync-search-param';
+import { PageContainer } from '@/components/layouts';
 
 const DEBOUNCE_WAIT = 250;
 
@@ -75,7 +76,7 @@ export default function Home() {
     return (
         <>
             <ThirstyHeader />
-            <Box component="main">
+            <PageContainer>
                 <Box
                     sx={{
                         padding: '16px',
@@ -96,7 +97,7 @@ export default function Home() {
                     data={drinks}
                     showNoResults={noResults}
                 />
-            </Box>
+            </PageContainer>
         </>
     );
 }

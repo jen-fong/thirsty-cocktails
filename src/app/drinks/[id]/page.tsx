@@ -13,10 +13,9 @@ import { PieChartData } from '@/shared-types';
 import { standardizeUnit } from '@/utils/drinks';
 import { Loader } from '@/components/loader';
 import { CustomHeader } from '@/components/header';
+import { PageContainer } from '@/components/layouts';
 
-const PageContainer = styled('main')({
-    maxWidth: '420px',
-    margin: 'auto',
+const DrinkPageContainer = styled(PageContainer)({
     padding: '30px 20px 0',
 });
 
@@ -81,9 +80,9 @@ export default function DrinkPage() {
 
     if (isPending) {
         return (
-            <PageContainer>
+            <DrinkPageContainer>
                 <Loader />
-            </PageContainer>
+            </DrinkPageContainer>
         );
     }
 
@@ -94,7 +93,7 @@ export default function DrinkPage() {
     return (
         <>
             <CustomHeader showBackButton>{data.name}</CustomHeader>
-            <PageContainer>
+            <DrinkPageContainer>
                 <DrinkDetails>
                     <DrinkImage src={data.image} alt={data.name} width="150px" height="150px" />
                     <DrinkName component="h2">{data.name}</DrinkName>
@@ -107,7 +106,7 @@ export default function DrinkPage() {
                 </IngredientsContainer>
 
                 <InstructionsTypography>{data.instructions}</InstructionsTypography>
-            </PageContainer>
+            </DrinkPageContainer>
         </>
     );
 }

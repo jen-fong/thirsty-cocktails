@@ -1,19 +1,18 @@
-import { BodyTypography } from '@/components/typography';
+import { ListTile, List, ListItem } from '@/components/list';
 import { PieChartData, PieChartLegend } from '@/shared-types';
 import { Box, styled } from '@mui/material';
 import { PieChart as MuiPieChart } from '@mui/x-charts/PieChart';
 
-const IngredientsLegend = styled('ul')({
-    listStyleType: 'none',
+const IngredientsLegend = styled(List)({
     flex: 1,
     '& :not(:last-of-type)': {
         marginBottom: '8px',
     },
 });
-const IngredientLegendItem = styled('li')({
+const IngredientLegendItem = styled(ListItem)({
     display: 'flex',
     alignItems: 'center',
-    gap: '4px',
+    gap: '8px',
 });
 
 const LegendColor = styled(Box)<{
@@ -39,8 +38,7 @@ function Legend({ data }: { data: PieChartLegend[] }) {
             {data.map(({ label, color }, i) => {
                 return (
                     <IngredientLegendItem key={i}>
-                        <LegendColor color={color} />
-                        {label && <BodyTypography>{label}</BodyTypography>}
+                        <ListTile tile={<LegendColor color={color} />} label={label} />
                     </IngredientLegendItem>
                 );
             })}
