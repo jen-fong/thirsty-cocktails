@@ -44,6 +44,8 @@ export function standardizeUnit(measurement: string): number | undefined {
         convertedValue = value * 8;
     } else if (cleanStr.includes('shot')) {
         convertedValue = value * 1.5;
+    } else if (cleanStr.includes('liter')) {
+        convertedValue = value * 33;
     } else if (cleanStr.includes('oz')) {
         convertedValue = value;
     }
