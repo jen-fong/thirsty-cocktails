@@ -44,7 +44,7 @@ Live Demo: [https://thirsty-cocktails.vercel.app/](https://thirsty-cocktails.ver
 
 ## 🧪 Testing
 
-Jest and React Testing Library were used for unit and integration tests.
+Jest and React Testing Library were used for unit and integration tests. I did not write tests for everything, just a few util functions, simple components, and a larger component to show how I usually test. The utils and simple components were unit tested. An integration test was done for the larger component to test it as a whole.
 
 ### Run all tests
 ```bash
