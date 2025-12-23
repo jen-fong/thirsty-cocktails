@@ -56,7 +56,7 @@ export default function PieChart({
     return (
         <PieChartContainer>
             <Legend data={legend} />
-            {data && (
+            {data?.length > 0 && (
                 <MuiPieChart
                     series={[
                         {
