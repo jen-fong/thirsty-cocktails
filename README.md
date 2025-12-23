@@ -66,3 +66,4 @@ There was a lot of different data returned for the ingredients. I tried my best 
 * **Data Fetching:** Used **React Query** to handle api states easily
 * **Testing Strategy:** I added unit tests for some util functions and simple components but used integration tests for the larger page components.
 * **File Structure:** Colocation of components where they are used while shared components, utils, etc are in a top level folder.
+* **Client Side Rendering:** While I could have used Next.js server side rendering for the individual drink page, I kept all of it client side rendered to make it simple.
