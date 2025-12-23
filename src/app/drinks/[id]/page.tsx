@@ -52,6 +52,8 @@ export default function DrinkPage() {
         queryFn: () => getDrinkById(id),
     });
 
+    // The pie chart must be the same measurement to properly show the ratios,
+    // but we will display the full ingredient list for the legend
     const chartData = useMemo(
         () =>
             data?.ingredients
