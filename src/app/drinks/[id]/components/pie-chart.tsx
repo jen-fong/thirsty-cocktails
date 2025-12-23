@@ -61,7 +61,7 @@ export default function PieChart({
                     series={[
                         {
                             data,
-                            valueFormatter: item => `${item.value} oz`,
+                            valueFormatter: (item) => `${item.value} oz`,
                         },
                     ]}
                     width={120}

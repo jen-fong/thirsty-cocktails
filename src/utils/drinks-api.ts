@@ -5,7 +5,7 @@ export function combineIngredientsAndUnit(drink: DrinkApiData): DrinkIngredient[
     // the shape of the data for ingredients look like this strIngredientX
     // Don't know how many there are, looks to be 15, but let's keep it dynamic in case the api changes
     const ingredientKeys = Object.keys(drink).filter(
-        key => key.startsWith('strIngredient') && typeof drink[key] === 'string'
+        (key) => key.startsWith('strIngredient') && typeof drink[key] === 'string',
     );
 
     const ingredientWithUnits = ingredientKeys.map((ingredientKey, i) => {
