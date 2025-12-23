@@ -1,4 +1,4 @@
-import { toDrinkData, toDrinkListItemData } from '@/app/utils/drinks-api';
+import { toDrinkData, toDrinkListItemData } from '@/utils/drinks-api';
 import { Drink, DrinkListItem, SearchDrinksResponse } from '@/shared-types';
 
 // ideally this would be placed inside a .env file but for the sake of this
