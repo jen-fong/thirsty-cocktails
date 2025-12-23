@@ -1,7 +1,7 @@
 'use client';
 
 import { ChangeEvent, useState } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 import { searchDrinksByName } from '@/services/drinks';
 import { BodyTypography } from '@/components/typography';
@@ -11,6 +11,8 @@ import { Loader } from '@/components/loader';
 import { DrinkListItem } from '@/shared-types';
 import useDebounce from '@/hooks/use-debounce';
 import { ThirstyHeader } from '@/components/header';
+import { useSearchParams } from 'next/navigation';
+import { useSyncSearchParam } from '@/hooks/use-sync-search-param';
 
 const DEBOUNCE_WAIT = 250;
 
@@ -42,7 +44,8 @@ function Results({
 }
 
 export default function Home() {
-    const [searchQuery, setSearchQuery] = useState('');
+    const searchParams = useSearchParams();
+    const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
     const debouncedSearch = useDebounce(searchQuery, DEBOUNCE_WAIT);
 
     const {
@@ -53,6 +56,10 @@ export default function Home() {
         queryKey: ['drinks', debouncedSearch],
         queryFn: () => searchDrinksByName(debouncedSearch),
         enabled: debouncedSearch.trim().length > 0,
+    });
+
+    useSyncSearchParam({
+        searchQuery: debouncedSearch,
     });
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {

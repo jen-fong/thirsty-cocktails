@@ -49,7 +49,7 @@ export default function DrinkPage() {
     const params = useParams();
     const id = params.id as string;
     const { isPending, error, data } = useQuery({
-        queryKey: ['drink'],
+        queryKey: ['drink', id],
         queryFn: () => getDrinkById(id),
     });
 
