@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍹 Spiral Cocktails
 
-## Getting Started
+Take home assignment built using **Next.js 16**, **Material UI (MUI)**, and **TanStack Query**.
 
-First, run the development server:
+---
 
+## 🚀 Tech Stack
+
+* **Framework:** [Next.js](https://nextjs.org/)
+* **Version:** Node v24 | Next.js 16 | React 19
+* **State Management:** [TanStack Query v5](https://tanstack.com/query/latest)
+* **Styling & UI:** [Material UI (MUI)](https://mui.com/) which uses Emotion under the covers and comes with a lot of prebuilt components
+* **Pie Chart:** [Material UI Charts](https://mui.com/x/react-charts/)
+* **Testing:** [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+* **Node.js:** v24.x or higher
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/jen-fong/spiral-cocktails.git
+    cd spiral-cocktails
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+---
+
+## 🧪 Testing
+
+Jest and React Testing Library were used for unit and integration tests.
+
+### Run all tests
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Implementation Details
+There was a lot of different data returned for the ingredients. I tried my best to get all the ones that could be converted to oz.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Measurements
+* **Supported Conversions:** The parser handles fractions (e.g., `1 1/2`), decimals (`0.5`), and ranges (`3-4 oz`). It standardizes units like `ml`, `cl`, `tsp`, `tbsp`, `cups`, and `shots` into **Ounces (oz)**.
+* **Edge Cases & Limitations:** 
+    * **Range Handling:** For ingredient ranges (e.g., `3-4 oz`), the logic defaults to the lower value for simplicity.
+    * **Liters (L):** While most common bar units are supported, some variations such as l (for Liters), could not be extracted easily since it's one letter.
+    * **Non-standard Units:** `splash`, `wedge`, `dash`, or `top up` are were ignored for the pie chart. These cannot be accurately converted to a fixed fluid ounce value.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Technical Architecture
+* **Debounced Search:** To minimize searching on every keystroke and improve performance, the search is debounced.
+* **Data Fetching:** Used **React Query** to handle api states easily
+* **Testing Strategy:** I added unit tests for some util functions and simple components but used integration tests for the larger page components.
+* **File Structure:** Colocation of components where they are used while shared components, utils, etc are in a top level folder.
