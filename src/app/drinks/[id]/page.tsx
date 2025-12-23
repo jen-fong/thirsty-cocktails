@@ -1,8 +1,8 @@
 'use client';
 
-import PieChart from '@/components/pie-chart';
+import PieChart from '@/app/drinks/[id]/components/pie-chart';
 import { getColor } from '@/utils/colors';
-import { DrinkImage } from '@/components/drink-image';
+import { DrinkImage } from '@/app/components/drink-image';
 import { BodyTypography } from '@/components/typography';
 import { getDrinkById } from '@/services/drinks';
 import { Box, styled, Typography, TypographyProps } from '@mui/material';

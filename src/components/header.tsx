@@ -1,17 +1,19 @@
 'use client';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Typography, useTheme } from '@mui/material';
 import { ReactNode } from 'react';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import { BodyTypography } from '@/components/typography';
 import { useRouter } from 'next/navigation';
 
 function HeaderContainer({ children }: { children: ReactNode }) {
+    const theme = useTheme();
     return (
         <Box
             component="header"
             sx={{
                 padding: '16px',
                 position: 'relative',
+                backgroundColor: theme.palette.grey[200],
             }}
         >
             {children}

@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { searchDrinksByName } from '@/services/drinks';
 import { BodyTypography } from '@/components/typography';
 import Search from '@/components/search';
-import DrinksList from '@/components/drinks-list';
+import DrinksList from '@/app/components/drinks-list';
 import { Loader } from '@/components/loader';
 import { DrinkListItem } from '@/shared-types';
 import useDebounce from '@/hooks/use-debounce';

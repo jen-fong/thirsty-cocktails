@@ -2,7 +2,7 @@ import { Box, styled } from '@mui/material';
 import Link from 'next/link';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { BodyTypography } from '@/components/typography';
-import { DrinkImage } from '@/components/drink-image';
+import { DrinkImage } from '@/app/components/drink-image';
 import { DrinkListItem } from '@/shared-types';
 
 const StyledDrinkLink = styled(Link)(({ theme }) => ({
