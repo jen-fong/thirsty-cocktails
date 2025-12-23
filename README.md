@@ -8,7 +8,7 @@ Live Demo: [https://thirsty-cocktails.vercel.app/](https://thirsty-cocktails.ver
 
 * **Framework:** [Next.js](https://nextjs.org/)
 * **Version:** Node v24 | Next.js 16 | React 19
-* **State Management:** [TanStack Query v5](https://tanstack.com/query/latest)
+* **API State Management:** [TanStack Query v5](https://tanstack.com/query/latest)
 * **Styling & UI:** [Material UI (MUI)](https://mui.com/) which uses Emotion under the covers and comes with a lot of prebuilt components
 * **Pie Chart:** [Material UI Charts](https://mui.com/x/react-charts/)
 * **Testing:** [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
