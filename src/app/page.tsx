@@ -70,16 +70,17 @@ export default function Home() {
     const clearSearch = () => {
         setSearchQuery('');
     };
-    const drinks = searchQuery.trim() === '' ? [] : data;
+    const trimmedSearchQuery = searchQuery.trim();
+    const drinks = trimmedSearchQuery === '' ? [] : data;
     const isTyping = searchQuery !== debouncedSearch;
-    const noResults = !!searchQuery.trim() && !isTyping && !isLoading && drinks.length === 0;
+    const noResults = !!trimmedSearchQuery && !isTyping && !isLoading && drinks.length === 0;
     return (
         <>
             <ThirstyHeader />
             <PageContainer>
                 <Box
                     sx={{
-                        padding: '16px',
+                        padding: '16px 0',
                     }}
                 >
                     <Search
@@ -93,7 +94,7 @@ export default function Home() {
 
                 <Results
                     error={error}
-                    isLoading={isLoading || isTyping}
+                    isLoading={(isLoading || isTyping) && !!trimmedSearchQuery}
                     data={drinks}
                     showNoResults={noResults}
                 />
