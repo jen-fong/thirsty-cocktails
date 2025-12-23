@@ -2,7 +2,7 @@
 
 Take home assignment built using **Next.js 16**, **Material UI (MUI)**, and **React Query**.
 
----
+Live Demo: [https://thirsty-cocktails.vercel.app/](https://thirsty-cocktails.vercel.app/)
 
 ## 🚀 Tech Stack
 
