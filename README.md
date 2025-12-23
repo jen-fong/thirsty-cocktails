@@ -67,3 +67,8 @@ There was a lot of different data returned for the ingredients. I tried my best 
 * **Testing Strategy:** I added unit tests for some util functions and simple components but used integration tests for the larger page components.
 * **File Structure:** Colocation of components where they are used while shared components, utils, etc are in a top level folder.
 * **Client Side Rendering:** While I could have used Next.js server side rendering for the individual drink page, I kept all of it client side rendered to make it simple.
+
+## 💡 Design
+* Used a max width on the screens since it didn't look so good when it takes up full width to match mobile designs better
+* Used pastel colors for the charts
+* Used Material UI for the search bar and the button icons but it offers a lot of useful components and it uses emotion under the covers

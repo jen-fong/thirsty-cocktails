@@ -2,7 +2,7 @@
 
 import PieChart from '@/app/drinks/[id]/components/pie-chart';
 import { getColor } from '@/utils/colors';
-import { DrinkImage } from '@/app/components/drink-image';
+import { CircleImage } from '@/components/circle-image';
 import { BodyTypography } from '@/components/typography';
 import { getDrinkById } from '@/services/drinks';
 import { Box, styled, Typography, TypographyProps } from '@mui/material';
@@ -16,7 +16,7 @@ import { CustomHeader } from '@/components/header';
 import { PageContainer } from '@/components/layouts';
 
 const DrinkPageContainer = styled(PageContainer)({
-    padding: '30px 20px 0',
+    paddingTop: '30px',
 });
 
 const DrinkDetails = styled(Box)({
@@ -95,7 +95,7 @@ export default function DrinkPage() {
             <CustomHeader showBackButton>{data.name}</CustomHeader>
             <DrinkPageContainer>
                 <DrinkDetails>
-                    <DrinkImage src={data.image} alt={data.name} width="150px" height="150px" />
+                    <CircleImage src={data.image} alt={data.name} width="150px" height="150px" />
                     <DrinkName component="h2">{data.name}</DrinkName>
                 </DrinkDetails>
 

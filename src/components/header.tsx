@@ -14,6 +14,8 @@ function HeaderContainer({ children }: { children: ReactNode }) {
                 padding: '16px',
                 position: 'relative',
                 backgroundColor: theme.palette.grey[200],
+                display: 'flex',
+                justifyContent: 'center',
             }}
         >
             {children}
@@ -29,6 +31,7 @@ function HeaderTypography({ children }: { children: ReactNode }) {
                 fontSize: '20px',
                 fontWeight: 'bold',
                 textAlign: 'center',
+                maxWidth: '170px', // some drink names are very long
             }}
         >
             {children}

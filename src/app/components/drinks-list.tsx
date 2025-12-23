@@ -1,7 +1,7 @@
 import { styled } from '@mui/material';
 import Link from 'next/link';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { DrinkImage } from '@/app/components/drink-image';
+import { CircleImage } from '@/components/circle-image';
 import { DrinkListItem } from '@/shared-types';
 import { ListTile, List, ListItem } from '@/components/list';
 
@@ -37,7 +37,7 @@ export default function DrinksList({ drinks }: { drinks: DrinkListItem[] }) {
                         <StyledDrinkLink href={`/drinks/${id}`}>
                             <ListTile
                                 tile={
-                                    <DrinkImage src={image} alt={name} width="40px" height="40px" />
+                                    <CircleImage src={image} alt={name} width="40px" height="40px" />
                                 }
                                 label={name}
                                 spacing="15px"
