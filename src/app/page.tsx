@@ -7,7 +7,6 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import { searchDrinksByName } from '@/services/drinks';
-import { DrinkListItem } from '@/shared-types';
 import Link from 'next/link';
 import { DrinkImage } from '@/components/drink-image';
 import { BodyTypography } from '@/components/typography';
