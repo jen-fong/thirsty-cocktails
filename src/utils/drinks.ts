@@ -1,12 +1,18 @@
-const NUMBER_REGEX = /(\d+\/\d+|\d+(\.\d+)?)/g;
-// Handles decimals, fractions, and whole numbers in string format
+const NUMBER_REGEX = /(\d+[\-\/]\d+|\d+(\.\d+)?)/g;
+// Handles decimals, fractions, whole numbers, and ranges (3-4 oz) in string format
 export function parseNumberQuantity(value: string) {
     const parts = value.match(NUMBER_REGEX) || [];
     const toNumberQuantity = parts.reduce((accum, currPart) => {
         const isFraction = currPart.includes('/');
+        // some have ingredients like 3-4 oz
+        const hasPartialRange = currPart.includes('-');
         if (isFraction) {
             const [num, fraction] = currPart.split('/').map(Number);
             accum += num / fraction;
+        } else if (hasPartialRange) {
+            // just pick the lower value here for simplicity
+            const [num] = currPart.split('-');
+            return Number(num);
         } else {
             accum += Number(currPart);
         }
@@ -36,6 +42,8 @@ export function standardizeUnit(measurement: string): number | undefined {
         convertedValue = value / 2;
     } else if (cleanStr.includes('cup')) {
         convertedValue = value * 8;
+    } else if (cleanStr.includes('shot')) {
+        convertedValue = value * 1.5;
     } else if (cleanStr.includes('oz')) {
         convertedValue = value;
     }

@@ -5,14 +5,16 @@ import { getColor } from '@/utils/colors';
 import { DrinkImage } from '@/components/drink-image';
 import { BodyTypography } from '@/components/typography';
 import { getDrinkById } from '@/services/drinks';
-import { Box, CircularProgress, styled, Typography, TypographyProps } from '@mui/material';
+import { Box, styled, Typography, TypographyProps } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 import { notFound, useParams } from 'next/navigation';
 import { useMemo } from 'react';
 import { PieChartData } from '@/shared-types';
 import { standardizeUnit } from '@/utils/drinks';
+import { Loader } from '@/components/loader';
+import { CustomHeader } from '@/components/header';
 
-const PageContainer = styled(Box)({
+const PageContainer = styled('main')({
     maxWidth: '400px',
     margin: 'auto',
     padding: '30px 20px 0',
@@ -73,14 +75,14 @@ export default function DrinkPage() {
     const legend = data?.ingredients.map(({ name, measurement }, i) => {
         return {
             color: getColor(i),
-            label: `${name} ${measurement && `(${measurement})`}`,
+            label: `${name}${measurement ? ` (${measurement})` : ''}`,
         };
     });
 
     if (isPending) {
         return (
-            <PageContainer sx={{ textAlign: 'center' }}>
-                <CircularProgress />
+            <PageContainer>
+                <Loader />
             </PageContainer>
         );
     }
@@ -90,19 +92,22 @@ export default function DrinkPage() {
     }
 
     return (
-        <PageContainer>
-            <DrinkDetails>
-                <DrinkImage src={data.image} alt={data.name} width="150px" height="150px" />
-                <DrinkName component="h1">{data.name}</DrinkName>
-            </DrinkDetails>
+        <>
+            <CustomHeader showBackButton>{data.name}</CustomHeader>
+            <PageContainer>
+                <DrinkDetails>
+                    <DrinkImage src={data.image} alt={data.name} width="150px" height="150px" />
+                    <DrinkName component="h1">{data.name}</DrinkName>
+                </DrinkDetails>
 
-            <IngredientsContainer>
-                <IngredientsLabel>Ingredients</IngredientsLabel>
+                <IngredientsContainer>
+                    <IngredientsLabel>Ingredients</IngredientsLabel>
 
-                {chartData && legend && <PieChart data={chartData} legend={legend} />}
-            </IngredientsContainer>
+                    {chartData && legend && <PieChart data={chartData} legend={legend} />}
+                </IngredientsContainer>
 
-            <InstructionsText>{data.instructions}</InstructionsText>
-        </PageContainer>
+                <InstructionsText>{data.instructions}</InstructionsText>
+            </PageContainer>
+        </>
     );
 }

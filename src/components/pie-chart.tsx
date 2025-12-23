@@ -38,7 +38,7 @@ function Legend({ data }: { data: PieChartLegend[] }) {
                 return (
                     <IngredientLegendItem key={i}>
                         <LegendColor color={color} />
-                        <BodyTypography>{label}</BodyTypography>
+                        {label && <BodyTypography>{label}</BodyTypography>}
                     </IngredientLegendItem>
                 );
             })}
