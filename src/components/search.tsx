@@ -26,7 +26,7 @@ export default function Search({
                             <SearchIcon fontSize="small" />
                         </InputAdornment>
                     ),
-                    endAdornment: (
+                    endAdornment: value && (
                         <InputAdornment position="end">
                             <IconButton
                                 aria-label="Clear search"

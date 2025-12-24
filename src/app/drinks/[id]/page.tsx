@@ -28,6 +28,7 @@ const DrinkDetails = styled(Box)({
 const DrinkName = styled(Typography)<TypographyProps>({
     fontSize: '20px',
     fontWeight: 'bold',
+    textAlign: 'center',
 });
 
 const IngredientsContainer = styled(Box)({

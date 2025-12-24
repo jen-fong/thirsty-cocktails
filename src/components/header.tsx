@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import { BodyTypography } from '@/components/typography';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 function HeaderContainer({ children }: { children: ReactNode }) {
     const theme = useTheme();
@@ -25,17 +26,23 @@ function HeaderContainer({ children }: { children: ReactNode }) {
 
 function HeaderTypography({ children }: { children: ReactNode }) {
     return (
-        <Typography
-            variant="h1"
-            sx={{
-                fontSize: '20px',
-                fontWeight: 'bold',
-                textAlign: 'center',
-                maxWidth: '170px', // some drink names are very long
-            }}
-        >
-            {children}
-        </Typography>
+        <Link href="/">
+            <Typography
+                variant="h1"
+                sx={{
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    maxWidth: {
+                        xs: '170px', // some drink names are very long
+                        sm: '250px',
+                        md: 'none',
+                    },
+                }}
+            >
+                {children}
+            </Typography>
+        </Link>
     );
 }
 
